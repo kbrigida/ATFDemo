@@ -1,0 +1,21 @@
+group 'astin'
+version '1.0-SNAPSHOT'
+
+apply plugin: 'java'
+
+sourceCompatibility = 1.5
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.11'
+    compile group: 'org.seleniumhq.selenium', name: 'selenium-java', version: '3.4.0'
+    compile group: 'org.seleniumhq.selenium', name: 'selenium-firefox-driver', version: '3.4.0'
+    testCompile group: 'info.cukes', name: 'cucumber-junit', version: '1.2.5'
+    compile group: 'info.cukes', name: 'cucumber-java', version: '1.2.5'
+    compile group: 'info.cukes', name: 'cucumber-core', version: '1.2.5'
+    compile group: 'info.cukes', name: 'gherkin', version: '2.12.2'
+    compile group: 'org.seleniumhq.selenium', name: 'selenium-firefox-driver', version: '3.4.0'
+}
