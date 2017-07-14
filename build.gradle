@@ -2,6 +2,7 @@ group 'astin'
 version '1.0-SNAPSHOT'
 
 apply plugin: 'java'
+apply plugin: 'maven'
 
 sourceCompatibility = 1.5
 
@@ -18,4 +19,6 @@ dependencies {
     compile group: 'info.cukes', name: 'cucumber-core', version: '1.2.5'
     compile group: 'info.cukes', name: 'gherkin', version: '2.12.2'
     compile group: 'org.seleniumhq.selenium', name: 'selenium-firefox-driver', version: '3.4.0'
+    compile group: 'com.github.mkolisnyk', name: 'cucumber-reports', version: '1.0.10', ext: 'pom'
+
 }

@@ -19,14 +19,14 @@ public class GeneralPage{
 
     public void fillField(String fieldValue, WebElement elem){
         WebDriverWait wait = new WebDriverWait(driver, 10);
-        wait.until(ExpectedConditions.elementToBeClickable(elem));
+        //wait.until(ExpectedConditions.elementToBeClickable(elem));
         Assert.assertNotNull("field not found", elem);
         elem.clear();
         elem.sendKeys(fieldValue);
     }
     public void clickButton(WebElement elem){
         WebDriverWait wait = new WebDriverWait(driver, 10);
-        wait.until(ExpectedConditions.elementToBeClickable(elem));
+        //wait.until(ExpectedConditions.elementToBeClickable(elem));
         Assert.assertNotNull("button not found", elem);
         elem.click();
     }
@@ -51,12 +51,12 @@ public class GeneralPage{
     public void waitElementLoad(WebElement elem){
         PageFactory.initElements(driver, this);
         WebDriverWait wait = new WebDriverWait(driver, 30);
-        wait.until(ExpectedConditions.elementToBeClickable(elem));
+        //wait.until(ExpectedConditions.elementToBeClickable(elem));
     }
     public void waitElementVisible(WebElement elem){
         PageFactory.initElements(driver, this);
         WebDriverWait wait = new WebDriverWait(driver, 30);
-        wait.until(ExpectedConditions.visibilityOf(elem));
+        //wait.until(ExpectedConditions.visibilityOf(elem));
     }
 
 }
