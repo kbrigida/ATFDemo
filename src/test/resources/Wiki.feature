@@ -1,7 +1,6 @@
 Feature: Wiki check
   Background:
     Given User opens wiki
-    And test
 
   Scenario: User search Lynx
     When User fill "Lynx" in search

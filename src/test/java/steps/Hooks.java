@@ -7,6 +7,7 @@ import cucumber.api.junit.Cucumber;
 import org.junit.runner.RunWith;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxProfile;
 import org.openqa.selenium.firefox.internal.ProfilesIni;
@@ -26,10 +27,12 @@ public class Hooks {
     @Before
     public void setUpBrowser() {
         if (driver == null) {
-            System.setProperty("webdriver.gecko.driver","d:/geckodriver.exe");
-            ProfilesIni profile = new ProfilesIni();
-            FirefoxProfile ffprofile = profile.getProfile("default");
-            driver = new FirefoxDriver(ffprofile);
+            //System.setProperty("webdriver.gecko.driver","d:/geckodriver.exe");
+            //ProfilesIni profile = new ProfilesIni();
+            //FirefoxProfile ffprofile = profile.getProfile("default");
+            //driver = new FirefoxDriver(ffprofile);
+            System.setProperty("webdriver.chrome.driver", "d:/chromedriver.exe");
+            driver = new ChromeDriver();
                 System.out.println("Opening Browser....");
             // driver.manage().window().maximize();
             driver.manage().window().setSize(new Dimension(1920, 1080));
