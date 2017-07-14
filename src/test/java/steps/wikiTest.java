@@ -54,11 +54,5 @@ public class wikiTest {
         lPage.changeLanguage();
     }
 
-
-    @And("^test$")
-    public void test() throws Throwable {
-        // Write code here that turns the phrase above into concrete actions
-        throw new PendingException();
-    }
 }
 

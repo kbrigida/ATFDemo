@@ -5,6 +5,7 @@ import cucumber.api.java.After;
 import cucumber.api.java.Before;
 import cucumber.api.junit.Cucumber;
 import org.junit.runner.RunWith;
+import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxProfile;
@@ -30,7 +31,8 @@ public class Hooks {
             FirefoxProfile ffprofile = profile.getProfile("default");
             driver = new FirefoxDriver(ffprofile);
                 System.out.println("Opening Browser....");
-            driver.manage().window().maximize();
+            // driver.manage().window().maximize();
+            driver.manage().window().setSize(new Dimension(1920, 1080));
                 System.out.println("Window maximized...");
             driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
             driver.manage().deleteAllCookies();
@@ -40,7 +42,7 @@ public class Hooks {
     }
     @After
     public void closeBrowser() {
-        System.out.println("Finish...");
-        driver.quit();
+        //System.out.println("Finish...");
+        //driver.quit();
     }
 }
