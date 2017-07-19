@@ -30,7 +30,7 @@ public class Hooks {
             //System.setProperty("webdriver.gecko.driver","d:/geckodriver.exe");
             //ProfilesIni profile = new ProfilesIni();
             //FirefoxProfile ffprofile = profile.getProfile("default");
-            //driver = new FirefoxDriver(ffprofile);
+            //driver = new FirefoxDrivdct nfrb 'nj [jhjier(ffprofile);
             System.setProperty("webdriver.chrome.driver", "d:/chromedriver.exe");
             driver = new ChromeDriver();
                 System.out.println("Opening Browser....");
