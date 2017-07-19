@@ -21,61 +21,11 @@ import java.util.concurrent.TimeUnit;
 public class HooksMobile {
     public static WebDriver driver;
 
-    public void startServer(){
-        CommandLine command = new CommandLine("cmd");
-        command.addArgument("/c");
-        command.addArgument("D:/Appium/node.exe");
-        command.addArgument("D:/Appium/node_modules/appium/bin/appium.js");
-        command.addArgument("--address");
-        command.addArgument("127.0.0.1");
-        command.addArgument("--port");
-        command.addArgument("4724");
-        command.addArgument("--no-reset");
-        command.addArgument("--log");
-        command.addArgument("D:/appiumLogs.txt");
-        DefaultExecuteResultHandler resultHandler = new DefaultExecuteResultHandler();
-        DefaultExecutor executor = new DefaultExecutor();
-        executor.setExitValue(1);
 
-
-        try {
-            executor.execute(command, resultHandler);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-    public void stopServer(){
-
-        CommandLine command = new CommandLine("cmd");
-        command.addArgument("/c");
-        command.addArgument("taskkill");
-        command.addArgument("/F");
-        command.addArgument("/IM");
-        command.addArgument("node.exe");
-
-        DefaultExecuteResultHandler resultHandler = new DefaultExecuteResultHandler();
-        DefaultExecutor executor = new DefaultExecutor();
-        executor.setExitValue(1);
-
-        try {
-            executor.execute(command, resultHandler);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-
-    }
 
     @Before
     public void setUp() throws MalformedURLException {
-        startServer();
-        System.out.println("---- Appium server started Successfully ! ----");
-        try {
-            Thread.sleep(2000L);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+
 
         // Created object of DesiredCapabilities class.
         DesiredCapabilities capabilities = new DesiredCapabilities();
@@ -114,7 +64,7 @@ public class HooksMobile {
 
     @After
     public void Finish() throws MalformedURLException {
-        stopServer();
+
 
     }
 }
