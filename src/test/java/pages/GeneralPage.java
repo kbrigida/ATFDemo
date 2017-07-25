@@ -19,7 +19,7 @@ public class GeneralPage{
 
     public void fillField(String fieldValue, WebElement elem){
         WebDriverWait wait = new WebDriverWait(driver, 10);
-        //wait.until(ExpectedConditions.elementToBeClickable(elem));
+        wait.until(ExpectedConditions.elementToBeClickable(elem));
         Assert.assertNotNull("field not found", elem);
         elem.clear();
         elem.sendKeys(fieldValue);

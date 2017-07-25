@@ -37,16 +37,4 @@ public class GeneralMobilePage {
         elem.sendKeys(fieldValue);
     }
 
-    public boolean checkElementExist(WebElement elem) {
-        try {
-            elem.isDisplayed();
-            return true;
-        } catch (NoSuchElementException e) {
-            return false;
-        }
-    }
-    public void waitElementLoad(WebElement elem){
-        PageFactory.initElements(driver, this);
-        WebDriverWait wait = new WebDriverWait(driver, 30);
-    }
 }

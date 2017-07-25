@@ -12,7 +12,10 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
 
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.concurrent.TimeUnit;
@@ -21,12 +24,23 @@ import java.util.concurrent.TimeUnit;
 public class HooksMobile {
     public static WebDriver driver;
 
+    public void startServer() throws InterruptedException, IOException {
+        Runtime.getRuntime().exec("cmd /C start emulator -avd Nexus");
+        Thread.sleep(15000);
+        Runtime.getRuntime().exec("cmd /C start appium -a 127.0.0.1");;
+        Thread.sleep(5000);
+    }
+    public void stopServer() throws IOException {
+        Runtime runtime = Runtime.getRuntime();
+        runtime.exec("taskkill /F /IM qemu-system-i386.exe");
+        runtime.exec("taskkill /F /IM node.exe");
+        runtime.exec("taskkill /F /IM cmd.exe");
 
+    }
 
     @Before
-    public void setUp() throws MalformedURLException {
-
-
+    public void setUp() throws IOException, InterruptedException {
+        startServer();
         // Created object of DesiredCapabilities class.
         DesiredCapabilities capabilities = new DesiredCapabilities();
 
@@ -63,8 +77,8 @@ public class HooksMobile {
     }
 
     @After
-    public void Finish() throws MalformedURLException {
-
-
+    public void Finish() throws IOException {
+        driver.quit();
+        stopServer();
     }
 }
