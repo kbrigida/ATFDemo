@@ -14,6 +14,7 @@ import cucumber.api.junit.Cucumber;
 import java.io.IOException;
 
 import static steps.Hooks.driver;
+import static stepsMobile.HooksMobile.reportGeneration;
 import static stepsMobile.HooksMobile.stopServer;
 
 
@@ -33,6 +34,7 @@ public class CalculatorRunner {
     @AfterClass
     public static void teardown() throws IOException {
         System.out.println("Run finished. Driver should close");
+        reportGeneration();
         stopServer();
     }
 }

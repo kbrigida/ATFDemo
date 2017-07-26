@@ -15,6 +15,7 @@ import org.openqa.selenium.firefox.internal.ProfilesIni;
 import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
+import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
 /**
@@ -23,7 +24,9 @@ import java.util.concurrent.TimeUnit;
 
 public class Hooks {
     public static WebDriver driver;
-    public Hooks (){
+
+    public static void reportGeneration() throws IOException {
+        Runtime.getRuntime().exec("cmd /C start java -jar D:\\cucumber-sandwich-0.0.4.jar -n -f C:\\Users\\kbrigida\\IdeaProjects\\addMeFastId -o d:/Reports");
     }
     @Before
     public void setUpBrowser() {

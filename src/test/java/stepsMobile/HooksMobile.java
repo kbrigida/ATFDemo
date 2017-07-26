@@ -24,6 +24,10 @@ import java.util.concurrent.TimeUnit;
 public class HooksMobile {
     public static WebDriver driver;
 
+    public static void reportGeneration() throws IOException {
+        Runtime.getRuntime().exec("cmd /C start java -jar D:\\cucumber-sandwich-0.0.4.jar -n -f C:\\Users\\kbrigida\\IdeaProjects\\addMeFastId -o d:/Reports");
+    }
+
     public void startServer() throws InterruptedException, IOException {
         // start Android emulator
         Runtime.getRuntime().exec("cmd /C start emulator -avd Nexus");
