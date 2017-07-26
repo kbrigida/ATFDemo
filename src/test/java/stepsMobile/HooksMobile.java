@@ -25,15 +25,20 @@ public class HooksMobile {
     public static WebDriver driver;
 
     public void startServer() throws InterruptedException, IOException {
+        // start Android emulator
         Runtime.getRuntime().exec("cmd /C start emulator -avd Nexus");
         Thread.sleep(15000);
+        //start Appium server
         Runtime.getRuntime().exec("cmd /C start appium -a 127.0.0.1");;
         Thread.sleep(5000);
     }
-    public void stopServer() throws IOException {
+    public static void stopServer() throws IOException {
         Runtime runtime = Runtime.getRuntime();
+        // stop emulator
         runtime.exec("taskkill /F /IM qemu-system-i386.exe");
+        //stop node.js
         runtime.exec("taskkill /F /IM node.exe");
+        //stop appium
         runtime.exec("taskkill /F /IM cmd.exe");
 
     }
@@ -74,11 +79,5 @@ public class HooksMobile {
         driver.manage().timeouts().implicitlyWait(55, TimeUnit.SECONDS);
 
 
-    }
-
-    @After
-    public void Finish() throws IOException {
-        driver.quit();
-        stopServer();
     }
 }

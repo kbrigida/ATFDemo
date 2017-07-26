@@ -1,4 +1,4 @@
-Feature: Second check
+Feature: Wiki check
   Background:
     Given User opens wiki
 
@@ -13,12 +13,5 @@ Feature: Second check
     And User clicks search
     Examples:
       |SearchParams|
-      |Elephant|
-      |Cat|
-      |Rhino|
-      |Puma|
-      |Dog|
-      |Butterfly|
-      |Chitos|
-      |Monkey|
-
+      |test|
+      |new|

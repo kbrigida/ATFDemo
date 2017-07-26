@@ -4,6 +4,7 @@ import cucumber.api.CucumberOptions;
 import cucumber.api.java.After;
 import cucumber.api.java.Before;
 import cucumber.api.junit.Cucumber;
+import org.junit.jupiter.api.AfterAll;
 import org.junit.runner.RunWith;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebDriver;
@@ -42,10 +43,5 @@ public class Hooks {
                 System.out.println("Cookies deleted...");
 
         }
-    }
-    @After
-    public void closeBrowser() {
-        //System.out.println("Finish...");
-        //driver.quit();
     }
 }
