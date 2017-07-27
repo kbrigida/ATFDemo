@@ -1,7 +1,7 @@
 package pages;
 
 import org.junit.Assert;
-import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -29,6 +29,24 @@ public class GeneralPage{
         //wait.until(ExpectedConditions.elementToBeClickable(elem));
         Assert.assertNotNull("button not found", elem);
         elem.click();
+    }
+
+    public int getWidthSize(WebElement elem){
+        WebDriverWait wait = new WebDriverWait(driver, 10);
+        wait.until(ExpectedConditions.elementToBeClickable(elem));
+        return elem.getSize().getWidth();
+    }
+
+    public int getHeightSize(WebElement elem){
+        WebDriverWait wait = new WebDriverWait(driver, 10);
+        wait.until(ExpectedConditions.elementToBeClickable(elem));
+        return elem.getSize().getHeight();
+    }
+
+    public void scrollFromElement(WebElement webElement, int x, int y){
+        String code = "window.scroll(" + (webElement.getLocation().x + x) + ","
+                + (webElement.getLocation().y + y) + ");";
+        ((JavascriptExecutor)driver).executeScript(code, webElement, x, y);
     }
 
     public void pageRedirect(String url){

@@ -52,6 +52,7 @@ public class wikiTest {
     @And("^User change language$")
     public void userChangeLanguage() throws Throwable {
         lPage.changeLanguage();
+
     }
 
 }

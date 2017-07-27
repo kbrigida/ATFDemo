@@ -2,6 +2,7 @@ package stepsMobile;
 
 import cucumber.api.java.After;
 import cucumber.api.java.Before;
+import io.appium.java_client.android.AndroidDriver;
 import org.apache.commons.exec.CommandLine;
 import org.apache.commons.exec.DefaultExecuteResultHandler;
 import org.apache.commons.exec.DefaultExecutor;
@@ -22,7 +23,7 @@ import java.util.concurrent.TimeUnit;
 
 
 public class HooksMobile {
-    public static WebDriver driver;
+    public static AndroidDriver driver;
 
     public static void reportGeneration() throws IOException {
         Runtime.getRuntime().exec("cmd /C start java -jar D:\\cucumber-sandwich-0.0.4.jar -n -f C:\\Users\\kbrigida\\IdeaProjects\\addMeFastId -o d:/Reports");
@@ -30,7 +31,7 @@ public class HooksMobile {
 
     public void startServer() throws InterruptedException, IOException {
         // start Android emulator
-        Runtime.getRuntime().exec("cmd /C start emulator -avd Nexus");
+        Runtime.getRuntime().exec("cmd /C start emulator -avd Nexus_5X_API_24");
         Thread.sleep(15000);
         //start Appium server
         Runtime.getRuntime().exec("cmd /C start appium -a 127.0.0.1");;
@@ -78,7 +79,7 @@ public class HooksMobile {
         // Created object of RemoteWebDriver will all set capabilities.
         // Set appium server address and port number in URL string.
         // It will launch calculator app in android device.
-        driver = new RemoteWebDriver(new URL("http://127.0.0.1:4723/wd/hub"), capabilities);
+        driver = new AndroidDriver(new URL("http://127.0.0.1:4723/wd/hub"), capabilities);
         // wearDriver = new RemoteWebDriver(new URL("http://127.0.0.1:4723/wd/hub"), capabilities);
         driver.manage().timeouts().implicitlyWait(55, TimeUnit.SECONDS);
 

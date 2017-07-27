@@ -17,7 +17,7 @@ public class wikiPage extends GeneralPage {
     @FindBy (xpath = ".//li[@class='interlanguage-link interwiki-vi']/a")
     WebElement changeToVietnamese;
     @FindBy (id = "searchButton")
-    WebElement searchButton;
+    public WebElement searchButton;
 
 
     public wikiPage(WebDriver driver) {
@@ -47,4 +47,9 @@ public class wikiPage extends GeneralPage {
         PageFactory.initElements(driver, this);
         clickButton(changeToVietnamese);
     }
+
+    public void scrollWiki(){
+        scrollFromElement(LynxLink,100,200);
+    }
+
 }

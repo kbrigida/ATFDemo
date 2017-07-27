@@ -4,6 +4,7 @@ import cucumber.api.PendingException;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.When;
+import io.appium.java_client.android.AndroidDriver;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 import pagesMobile.CalculatorPage;
@@ -16,7 +17,7 @@ import java.util.concurrent.TimeUnit;
  * Created by kbrigida on 18.07.2017.
  */
 public class CalculatorSteps {
-    protected WebDriver driver;
+    protected AndroidDriver driver;
     public CalculatorPage lPage;
 
     public CalculatorSteps() {
@@ -33,6 +34,7 @@ public class CalculatorSteps {
     @When("^User subtracts from result \"([^\"]*)\"$")
     public void userSubtractsFromResult(String arg0) throws Throwable {
         lPage.Minus();
+        lPage.getHeightCheck();
     }
 
     @And("^User multiply result in \"([^\"]*)\" times$")
@@ -47,6 +49,7 @@ public class CalculatorSteps {
 
     @And("^User check result$")
     public void userCheckResult() throws Throwable {
+        lPage.scroll();
         lPage.CheckResult("1");
     }
 }
